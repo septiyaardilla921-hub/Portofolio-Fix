@@ -8,121 +8,274 @@
     <meta name="viewport"
     content="width=device-width, initial-scale=1.0">
 
-    <title>About</title>
+    <title>Contact — Septiya Ardilla</title>
 
-    <link rel="stylesheet"href="Template.css">
+    <link rel="stylesheet" href="Template.css">
 
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 
 </head>
 
 <body>
 
+<!-- =========================================
+     HEADER
+========================================= -->
 <header>
 
     <div class="logo">
         Network <span>Monitoring & Provisioning</span>
     </div>
 
-    <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
+    <div class="menu-btn">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
     <div class="nav-overlay" id="nav-overlay"></div>
 
     <nav>
-
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="skill.html">Skills</a>
         <a href="project.html">Projects</a>
-
     </nav>
 
 </header>
 
- <!-- CONTACT SECTION -->
-    <section class="contact" id="contact">
+<!-- =========================================
+     CONTACT SECTION
+========================================= -->
+<section class="contact" id="contact">
 
-        <div class="section-title">
-            <h2>Contact</h2>
+    <div class="section-title">
+        <h2>Contact Me</h2>
+    </div>
+
+    <div class="contact-wrapper">
+
+        <!-- SOCIAL MEDIA -->
+        <div class="contact-socials">
+
+            <a href="mailto:septiyaardilla921@gmail.com"
+               class="social-icon"
+               aria-label="Email">
+
+                <i class="fa-solid fa-envelope"></i>
+
+            </a>
+
+            <a href="https://linkedin.com/in/septiyaardilla"
+               target="_blank"
+               rel="noopener"
+               class="social-icon social-linkedin"
+               aria-label="LinkedIn">
+
+                <i class="fa-brands fa-linkedin-in"></i>
+
+            </a>
+
+            <a href="https://instagram.com/septiyaarr"
+               target="_blank"
+               rel="noopener"
+               class="social-icon social-instagram"
+               aria-label="Instagram">
+
+                <i class="fa-brands fa-instagram"></i>
+
+            </a>
+
+            <a href="https://wa.me/6285838344919"
+               target="_blank"
+               rel="noopener"
+               class="social-icon social-whatsapp"
+               aria-label="WhatsApp">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+            </a>
+
         </div>
 
-        <!-- FIX: contact-wrapper sekarang membungkus socials + form, dan ditutup dengan benar -->
-        <div class="contact-wrapper">
+        <!-- FORM TITLE -->
+        <div class="section-title contact-title">
+            <h2>Let's Connect</h2>
+        </div>
 
-            <div class="contact-socials">
-                <a href="mailto:septiyaardilla921@gmail.com"
-                   class="social-icon" aria-label="Email">
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
-                <a href="https://linkedin.com/in/septiyaardilla"
-                   target="_blank" rel="noopener"
-                   class="social-icon social-linkedin" aria-label="LinkedIn">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="https://instagram.com/septiyaarr"
-                   target="_blank" rel="noopener"
-                   class="social-icon social-instagram" aria-label="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://wa.me/6285838344919"
-                   target="_blank" rel="noopener"
-                   class="social-icon social-whatsapp" aria-label="WhatsApp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
+        <!-- CONTACT FORM -->
+        <form id="contact-form" novalidate>
+
+            <div class="cm-field">
+                <label for="cf-nama">Full Name</label>
+
+                <input
+                    id="cf-nama"
+                    name="nama"
+                    type="text"
+                    placeholder="Enter your full name"
+                    required>
             </div>
 
-            
-        <div class="section-title">
-            <h2>Let's content</h2> 
+            <div class="cm-row">
+
+                <div class="cm-field">
+                    <label for="cf-email">Email</label>
+
+                    <input
+                        id="cf-email"
+                        name="email"
+                        type="email"
+                        placeholder="example@gmail.com">
+                </div>
+
+                <div class="cm-field">
+                    <label for="cf-wa">WhatsApp</label>
+
+                    <input
+                        id="cf-wa"
+                        name="kontak"
+                        type="tel"
+                        placeholder="+62xxxxxxxxxx">
+                </div>
+
+            </div>
+
+            <div class="cm-field">
+                <label for="cf-subjek">Subject</label>
+
+                <input
+                    id="cf-subjek"
+                    name="subjek"
+                    type="text"
+                    placeholder="Project discussion / collaboration">
+            </div>
+
+            <div class="cm-field">
+                <label for="cf-pesan">Message</label>
+
+                <textarea
+                    id="cf-pesan"
+                    name="pesan"
+                    rows="5"
+                    placeholder="Write your message here..."
+                    required></textarea>
+            </div>
+
+            <button type="submit"
+                    class="cm-submit"
+                    id="cf-submit-btn">
+
+                <i class="fa-solid fa-paper-plane"></i>
+                Send Message
+
+            </button>
+
+            <p class="cm-note">
+
+                <i class="fa-solid fa-circle"
+                   style="color:#25d366;font-size:8px"></i>
+
+                Your message will be stored automatically
+
+            </p>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     THANK YOU SECTION
+========================================= -->
+<section class="thank-you-page">
+
+    <div class="thank-bg"></div>
+
+    <div class="thank-floating thank-icon-1">
+        <i class="fa-solid fa-heart"></i>
+    </div>
+
+    <div class="thank-floating thank-icon-2">
+        <i class="fa-solid fa-star"></i>
+    </div>
+
+    <div class="thank-floating thank-icon-3">
+        <i class="fa-solid fa-circle-check"></i>
+    </div>
+
+    <div class="thank-container">
+
+        <div class="thank-badge">
+
+            <i class="fa-solid fa-handshake-angle"></i>
+            Thank You For Visiting
+
         </div>
 
-            <form id="contact-form" novalidate>
-                <div class="cm-field">
-                    <label for="cf-nama">Nama Lengkap</label>
-                    <input id="cf-nama" name="nama" type="text"
-                           placeholder="" required>
-                </div>
-                <div class="cm-row">
-                    <div class="cm-field">
-                        <label for="cf-email">Email</label>
-                        <input id="cf-email" name="email" type="email"
-                               placeholder="">
-                    </div>
-                    <div class="cm-field">
-                        <label for="cf-wa">No. WhatsApp</label>
-                        <input id="cf-wa" name="kontak" type="tel"
-                               placeholder="">
-                    </div>
-                </div>
-                <div class="cm-field">
-                    <label for="cf-subjek">Subjek</label>
-                    <input id="cf-subjek" name="subjek" type="text"
-                           placeholder="">
-                </div>
-                <div class="cm-field">
-                    <label for="cf-pesan">Pesan</label>
-                    <textarea id="cf-pesan" name="pesan" rows="5"
-                              placeholder="" required></textarea>
-                </div>
-                <button type="submit" class="cm-submit" id="cf-submit-btn">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    Kirim Pesan
-                </button>
-                <p class="cm-note">
-                    <i class="fa-solid fa-circle" style="color:#25d366;font-size:8px"></i>
-                    Data akan tersimpan langsung 
-                </p>
-            </form>
+        <h1>
+            Thanks For Visiting <br>
+            My Portfolio
+        </h1>
+
+        <p>
+            Thank you for taking the time to explore my portfolio website.
+            I hope this portfolio can provide an overview of my experience,
+            projects, and skills in Network Engineering, Monitoring,
+            Automation, and Data Processing.
+        </p>
+
+        <div class="thank-buttons">
+
+            <a href="index.html" class="btn-primary">
+
+                <i class="fa-solid fa-house"></i>
+                Back To Home
+
+            </a>
+
+            <a href="project.html" class="btn-secondary">
+
+                <i class="fa-solid fa-diagram-project"></i>
+                View Projects
+
+            </a>
 
         </div>
 
+        <div class="thank-quote">
+
+            <i class="fa-solid fa-quote-left"></i>
+
+            <span>
+                “Technology is best when it brings people together.”
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+<footer>
+
+    <p>
+        © 2026 Septiya Ardilla — Telecommunication Engineer Portfolio
+    </p>
+
+</footer>
+
+<!-- =========================================
+     SCRIPT
+========================================= -->
 <script src="Template.js"></script>
 <script src="bacground.js"></script>
 
 </body>
 </html>
- <!-- FOOTER -->
-    <footer>
-        <p>© 2026 Septiya Ardilla — Telecommunication Engineer Portfolio</p>
-    </footer>
