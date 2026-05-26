@@ -1,0 +1,133 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    overflow:hidden;
+}
+
+/* Background */
+.background{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+
+.background::before,
+.background::after{
+    content:'';
+    position:absolute;
+    border-radius:50%;
+    filter:blur(120px);
+}
+
+.background::before{
+    width:300px;
+    height:300px;
+    background:cyan;
+    top:15%;
+    left:15%;
+}
+
+.background::after{
+    width:300px;
+    height:300px;
+    background:#9333ea;
+    bottom:15%;
+    right:15%;
+}
+
+/* Main */
+.closing-container{
+    width:700px;
+    margin:70px auto;
+    text-align:center;
+    padding:60px;
+    border-radius:30px;
+    background:
+    rgba(255,255,255,.08);
+    border:
+    1px solid
+    rgba(255,255,255,.2);
+    backdrop-filter:
+    blur(20px);
+}
+
+h1{
+    font-size:50px;
+    color:cyan;
+    margin-bottom:20px;
+}
+
+.quote{
+    font-size:22px;
+    font-style:italic;
+    margin-bottom:30px;
+}
+
+h2{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.job-title{
+    margin-bottom:35px;
+    opacity:.8;
+}
+
+/* Social */
+.social-box{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-bottom:35px;
+}
+
+.social-box a{
+    width:60px;
+    height:60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    color:white;
+    text-decoration:none;
+    font-size:25px;
+    background:
+    rgba(255,255,255,.08);
+    border:
+    1px solid
+    rgba(255,255,255,.2);
+    transition:.4s;
+}
+
+.social-box a:hover{
+    color:cyan;
+    transform:
+    scale(1.1);
+}
+
+/* Contact */
+.contact-box p{
+    margin-bottom:12px;
+}
+
+/* Button */
+.button-box{
+    margin-top:40px;
+}
+
+.button-box a{
+    margin:0 10px;
+    text-decoration:none;
+    color:black;
+    background:cyan;
+    padding:15px 35px;
+    border-radius:50px;
+}

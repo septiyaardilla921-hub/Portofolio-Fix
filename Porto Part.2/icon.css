@@ -1,0 +1,88 @@
+/* floating icon container */
+.floating-icons{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    /* penting */
+    pointer-events:none;
+    z-index:1;
+}
+
+.tech-icon{
+    position:absolute;
+    width:75px;
+    height:75px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    background:
+    rgba(255, 51, 51, 0.863);
+    border:
+    1px solid
+    rgba(110, 255, 66, 0.719);
+    backdrop-filter:
+    blur(20px);
+    box-shadow:
+    0 0 20px rgba(0,255,255,.15);
+    animation:
+    floating 4s ease-in-out infinite;
+
+    /* penting */
+    pointer-events:none;
+    z-index:1;
+}
+.tech-icon i{
+    font-size:32px;
+    color:white;
+}
+
+.tech-icon:hover{
+    transform:scale(1.15);
+    color:cyan;
+    box-shadow:
+    0 0 25px cyan;
+}
+
+.network{
+    top:8%;
+    right:28%;
+}
+
+.looker{
+    top:30%;
+    left:8%;
+    animation-delay:.5s;
+}
+
+.vscode{
+    top:30%;
+    right:5%;
+    animation-delay:1s;
+}
+
+.appsheet{
+    bottom:20%;
+    left:10%;
+    animation-delay:1.5s;
+}
+
+.database{
+    bottom:15%;
+    right:10%;
+    animation-delay:2s;
+}
+
+@keyframes floating{
+    0%,100%{
+        transform:
+        translateY(0);
+    }
+
+    50%{
+        transform:
+        translateY(-15px);
+    }
+}

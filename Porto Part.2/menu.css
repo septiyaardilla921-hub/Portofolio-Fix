@@ -1,0 +1,76 @@
+/* ===== MENU WRAPPER ===== */
+.menu-wrapper{
+    width:300px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+/* ===== SELECT MENU ===== */
+.main-menu{
+    margin-bottom: 15px;
+    width:10%;
+    cursor:pointer;
+    color:rgb(0, 0, 0);
+    font-size:16px;
+    font-weight:500;
+    padding:15px;
+    border:none;
+    border-radius:20px;
+    background:
+    rgba(243, 158, 239, 0.61);
+    border:
+    1px solid
+    rgba(148, 46, 126, 0.945);
+    backdrop-filter:
+    blur(20px);
+    text-align: center;
+    transition:.5s;
+}
+
+.main-menu:hover{
+    color:rgb(207, 255, 75);
+    transform:scale(1.02);
+}
+
+/* ===== SUB MENU ===== */
+.menu-box{
+    margin-top:35px;
+    margin-bottom: 35px;
+    width:100%;
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    padding:25px;
+    border-radius:25px;
+    background:
+    rgba(211, 18, 169, 0.363);
+    border:
+    1px solid
+    rgb(138, 17, 92);
+    backdrop-filter:
+    blur(20px);
+}
+
+/* ===== MENU ITEM ===== */
+.menu-box button{
+    width:220px;
+    cursor:pointer;
+    border:none;
+    border-radius:50px;
+    color:rgb(0, 0, 0);
+    font-size:15px;
+    text-align:center;
+    padding:12px;
+    background:
+    rgba(255, 251, 2, 0.466);
+    transition:.10s;
+}
+
+.menu-box button:hover{
+    color:rgb(194, 66, 173);
+    transform:
+    scale(1.05);
+}
