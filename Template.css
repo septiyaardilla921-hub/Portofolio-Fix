@@ -20,14 +20,9 @@ textarea {
     font-family: 'Poppins', sans-serif;
 }
 
-a {
-    text-decoration: none;
-}
+a { text-decoration: none; }
 
-ul,
-ol {
-    list-style: none;
-}
+ul, ol { list-style: none; }
 
 img {
     max-width: 100%;
@@ -65,15 +60,13 @@ img {
         background .3s ease,
         color .3s ease;
 
-    /* Tinggi header agar bisa dipakai di mana saja */
     --header-h: 74px;
 }
 
 /* =============================================
    BASE
 ============================================= */
-html,
-body {
+html, body {
     width: 100%;
     min-height: 100%;
 }
@@ -133,6 +126,8 @@ p {
 ============================================= */
 section {
     padding: clamp(80px, 10vw, 120px) clamp(20px, 8vw, 100px);
+    /* ✅ PERBAIKAN: anchor link tidak tertutup fixed header */
+    scroll-margin-top: calc(var(--header-h) + 16px);
 }
 
 .section-title {
@@ -167,7 +162,8 @@ header {
     left: 0;
     width: 100%;
     height: var(--header-h);
-    padding: 0 8%;
+    /* ✅ PERBAIKAN: safe-area untuk notch iPhone/Android */
+    padding: 0 max(8%, env(safe-area-inset-right)) 0 max(8%, env(safe-area-inset-left));
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -185,9 +181,7 @@ header {
     color: var(--blue-dark);
 }
 
-.logo span {
-    color: var(--blue-main);
-}
+.logo span { color: var(--blue-main); }
 
 /* =============================================
    NAVIGATION
@@ -207,9 +201,7 @@ nav a {
 }
 
 nav a:hover,
-nav a.active {
-    color: var(--blue-main);
-}
+nav a.active { color: var(--blue-main); }
 
 nav a::after {
     content: '';
@@ -225,9 +217,7 @@ nav a::after {
 }
 
 nav a:hover::after,
-nav a.active::after {
-    transform: scaleX(1);
-}
+nav a.active::after { transform: scaleX(1); }
 
 /* =============================================
    MENU BUTTON
@@ -247,14 +237,10 @@ nav a.active::after {
     transition: var(--transition);
 }
 
-.menu-btn:hover {
-    background: var(--blue-pale);
-}
+.menu-btn:hover { background: var(--blue-pale); }
 
 /* =============================================
    HERO
-   Gunakan padding-top berbasis --header-h agar
-   konten tidak tertutup header di semua ukuran.
 ============================================= */
 .hero {
     min-height: 100vh;
@@ -262,7 +248,6 @@ nav a.active::after {
     align-items: center;
     justify-content: space-between;
     gap: 50px;
-    /* Tambahkan tinggi header + ruang napas */
     padding-top: calc(var(--header-h) + clamp(40px, 6vw, 80px));
     padding-bottom: clamp(60px, 8vw, 100px);
     padding-left:  clamp(20px, 8vw, 100px);
@@ -274,9 +259,7 @@ nav a.active::after {
     max-width: 650px;
 }
 
-.hero-text h1 {
-    margin-bottom: 24px;
-}
+.hero-text h1 { margin-bottom: 24px; }
 
 .hero-text p {
     font-size: 1.08rem;
@@ -367,7 +350,6 @@ nav a.active::after {
     object-fit: cover;
 }
 
-/* FLOATING ICON */
 .floating-icon {
     position: absolute;
     width: 70px;
@@ -397,9 +379,7 @@ nav a.active::after {
 /* =============================================
    ABOUT
 ============================================= */
-.about {
-    background: var(--bg-section);
-}
+.about { background: var(--bg-section); }
 
 .about-content {
     display: grid;
@@ -422,8 +402,7 @@ nav a.active::after {
 .about-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 100%;
     height: 5px;
     background: linear-gradient(90deg, var(--blue-main), var(--blue-light));
@@ -457,9 +436,7 @@ nav a.active::after {
 /* =============================================
    SKILLS
 ============================================= */
-.skills {
-    background: var(--bg-page);
-}
+.skills { background: var(--bg-page); }
 
 .skills-container {
     width: 100%;
@@ -500,8 +477,7 @@ nav a.active::after {
 .skill-box::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 0; left: 0;
     width: 100%;
     height: 4px;
     background: linear-gradient(90deg, var(--blue-main), var(--blue-light));
@@ -510,11 +486,7 @@ nav a.active::after {
     transition: transform .3s ease;
 }
 
-.skill-box:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-}
-
+.skill-box:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
 .skill-box:hover::before { opacity: 1; }
 .skill-box:hover::after  { transform: scaleX(1); }
 
@@ -525,9 +497,7 @@ nav a.active::after {
     transition: transform .3s ease;
 }
 
-.skill-box:hover i {
-    transform: scale(1.15);
-}
+.skill-box:hover i { transform: scale(1.15); }
 
 .skill-box span {
     font-size: .95rem;
@@ -539,9 +509,7 @@ nav a.active::after {
 /* =============================================
    PROJECTS
 ============================================= */
-.projects {
-    background: var(--bg-section);
-}
+.projects { background: var(--bg-section); }
 
 .project-container {
     display: grid;
@@ -585,9 +553,7 @@ nav a.active::after {
     display: block;
 }
 
-.project-card:hover .project-image img {
-    transform: scale(1.08);
-}
+.project-card:hover .project-image img { transform: scale(1.08); }
 
 .project-image::after {
     content: '';
@@ -618,9 +584,7 @@ nav a.active::after {
 /* =============================================
    CONTACT
 ============================================= */
-.contact {
-    background: var(--bg-page);
-}
+.contact { background: var(--bg-page); }
 
 .contact-socials {
     display: flex;
@@ -657,7 +621,8 @@ nav a.active::after {
 
 /* FORM */
 .contact form {
-    max-width: 760px;
+    /* ✅ PERBAIKAN: tidak meluber di layar kecil */
+    width: min(100%, 760px);
     margin: auto;
     padding: 35px;
     border-radius: var(--radius-lg);
@@ -695,9 +660,7 @@ nav a.active::after {
     transition: var(--transition);
 }
 
-.cm-field textarea {
-    resize: none;
-}
+.cm-field textarea { resize: none; }
 
 .cm-field input:focus,
 .cm-field textarea:focus {
@@ -739,7 +702,10 @@ nav a.active::after {
 ============================================= */
 footer {
     margin-top: auto;
-    padding: 28px 20px;
+    /* ✅ PERBAIKAN: padding bawah menyesuaikan home indicator iPhone */
+    padding: 28px max(20px, env(safe-area-inset-right))
+             max(28px, env(safe-area-inset-bottom))
+             max(20px, env(safe-area-inset-left));
     text-align: center;
     background: var(--text-dark);
     color: white;
@@ -795,6 +761,7 @@ body.nav-open {
     top: -220px;
     right: -220px;
     z-index: 0;
+    pointer-events: none;
 }
 
 .thank-container {
@@ -877,6 +844,7 @@ body.nav-open {
     font-size: 1.6rem;
     box-shadow: 0 12px 30px rgba(0,0,0,.08);
     animation: thankFloat 4s ease-in-out infinite;
+    pointer-events: none;
 }
 
 .thank-icon-1 { top: 18%; left:  8%; }
@@ -893,18 +861,13 @@ body.nav-open {
 ============================================= */
 @media (max-width: 900px) {
 
-    :root {
-        --header-h: 64px;
-    }
+    :root { --header-h: 64px; }
 
-    .menu-btn {
-        display: flex;
-    }
+    .menu-btn { display: flex; }
 
     nav {
         position: fixed;
-        top: 0;
-        right: 0;
+        top: 0; right: 0;
         width: 75%;
         max-width: 300px;
         height: 100vh;
@@ -913,16 +876,15 @@ body.nav-open {
         flex-direction: column;
         align-items: flex-start;
         gap: 0;
-        padding-top: 90px;
+        /* ✅ PERBAIKAN: ikuti --header-h aktual, bukan nilai statis */
+        padding-top: calc(var(--header-h) + 24px);
         transform: translateX(100%);
         transition: transform .35s ease;
         box-shadow: -10px 0 40px rgba(0,0,0,.08);
         z-index: 999;
     }
 
-    nav.open {
-        transform: translateX(0);
-    }
+    nav.open { transform: translateX(0); }
 
     nav a {
         width: 100%;
@@ -930,40 +892,28 @@ body.nav-open {
         border-bottom: 1px solid #f1f5f9;
     }
 
-    nav a::after {
-        display: none;
-    }
+    nav a::after { display: none; }
 
     .hero {
         flex-direction: column-reverse;
         text-align: center;
     }
 
-    .hero-buttons {
-        justify-content: center;
-    }
+    .hero-buttons { justify-content: center; }
 
     .skills-container {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 20px;
     }
 
-    .project-container {
-        grid-template-columns: 1fr;
-    }
+    .project-container { grid-template-columns: 1fr; }
 
-    .project-image {
-        height: 220px;
-    }
+    .project-image { height: 220px; }
 
-    .thank-buttons {
-        flex-direction: column;
-    }
+    .thank-buttons { flex-direction: column; }
 
     .thank-buttons .btn-primary,
-    .thank-buttons .btn-secondary {
-        width: 100%;
-    }
+    .thank-buttons .btn-secondary { width: 100%; }
 
     .thank-floating {
         width: 60px;
@@ -977,26 +927,25 @@ body.nav-open {
 ============================================= */
 @media (max-width: 600px) {
 
-    :root {
-        --header-h: 60px;
-    }
+    :root { --header-h: 60px; }
 
     section {
-        padding: 70px 20px;
+        /* ✅ PERBAIKAN: safe-area untuk layar dengan punch-hole/notch */
+        padding: 70px max(20px, env(safe-area-inset-right))
+                 70px max(20px, env(safe-area-inset-left));
+        scroll-margin-top: calc(var(--header-h) + 12px);
     }
 
     .hero {
         gap: 30px;
+        /* ✅ PERBAIKAN: override padding-top eksplisit di mobile kecil */
+        padding-top: calc(var(--header-h) + clamp(24px, 5vw, 40px));
     }
 
-    .hero-buttons {
-        flex-direction: column;
-    }
+    .hero-buttons { flex-direction: column; }
 
     .btn-primary,
-    .btn-secondary {
-        width: 100%;
-    }
+    .btn-secondary { width: 100%; }
 
     .floating-icon {
         width: 58px;
@@ -1015,46 +964,30 @@ body.nav-open {
         border-radius: 20px;
     }
 
-    .skill-box i {
-        font-size: 2rem;
-    }
+    .skill-box i { font-size: 2rem; }
 
-    .skill-box span {
-        font-size: .88rem;
-    }
+    .skill-box span { font-size: .88rem; }
 
-    .project-container {
-        grid-template-columns: 1fr;
-    }
+    .project-container { grid-template-columns: 1fr; }
 
-    .project-card {
-        border-radius: 22px;
-    }
+    .project-card { border-radius: 22px; }
 
-    .project-image {
-        height: 200px;
-    }
+    .project-image { height: 200px; }
 
-    .project-info {
-        padding: 22px;
-    }
+    .project-info { padding: 22px; }
 
-    .project-info h3 {
-        font-size: 1.15rem;
-    }
+    .project-info h3 { font-size: 1.15rem; }
 
-    .contact form {
-        padding: 24px;
-    }
+    .contact form { padding: 24px; }
 
-    .cm-row {
-        grid-template-columns: 1fr;
-    }
+    .cm-row { grid-template-columns: 1fr; }
 
     .thank-you-page {
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-bottom: 80px;
+        /* ✅ PERBAIKAN: padding lengkap — tidak ada nilai warisan tak terduga */
+        padding: calc(var(--header-h) + clamp(24px, 5vw, 40px))
+                 max(20px, env(safe-area-inset-right))
+                 max(80px, env(safe-area-inset-bottom))
+                 max(20px, env(safe-area-inset-left));
     }
 
     .thank-container {
@@ -1074,9 +1007,9 @@ body.nav-open {
         font-size: 1.1rem;
     }
 
-    .thank-icon-1 { top: 10%;    left: 3%; }
-    .thank-icon-2 { top: 12%;    right: 3%; }
-    .thank-icon-3 { bottom: 8%;  left: 5%; }
+    .thank-icon-1 { top: 10%;   left: 3%; }
+    .thank-icon-2 { top: 12%;   right: 3%; }
+    .thank-icon-3 { bottom: 8%; left: 5%; }
 }
 
 /* =============================================
