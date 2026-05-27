@@ -70,88 +70,95 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ─────────────────────────────────────────────
-    // CONTACT FORM
-    // ─────────────────────────────────────────────
     const APPS_SCRIPT_URL =
-        'https://script.google.com/macros/s/AKfycbzBkSgSQInlUhV6QR4PpkmAKww7gXkEPFQvF5Ls3iRTuJaJeOk0egrw46nm9Er9aMw/exec';
+'https://script.google.com/macros/s/AKfycbzBkSgSQInlUhV6QR4PpkmAKww7gXkEPFQvF5Ls3iRTuJaJeOk0egrw46nm9Er9aMw/exec';
 
-    const contactForm = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('cf-submit-btn');
+const contactForm = document.getElementById('contact-form');
+const submitBtn = document.getElementById('cf-submit-btn');
 
-    if (contactForm && submitBtn) {
+if (contactForm && submitBtn) {
 
-        const defaultBtnHTML =
-            '<i class="fa-solid fa-paper-plane"></i> Kirim Pesan';
+    const defaultBtnHTML =
+        '<i class="fa-solid fa-paper-plane"></i> Kirim Pesan';
 
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+    contactForm.addEventListener('submit', async (e) => {
 
-            const formData = {
-                nama: contactForm.nama?.value.trim(),
-                email: contactForm.email?.value.trim(),
-                kontak: contactForm.kontak?.value.trim(),
-                subjek: contactForm.subjek?.value.trim(),
-                pesan: contactForm.pesan?.value.trim(),
-            };
+        e.preventDefault();
 
-            // Validation
-            if (
-                !formData.nama ||
-                !formData.pesan ||
-                (!formData.email && !formData.kontak)
-            ) {
-                alert(
-                    'Harap isi Nama, Pesan, dan minimal Email atau WhatsApp.'
-                );
-                return;
-            }
+        const formData = {
+            nama: contactForm.nama?.value.trim(),
+            email: contactForm.email?.value.trim(),
+            kontak: contactForm.kontak?.value.trim(),
+            subjek: contactForm.subjek?.value.trim(),
+            pesan: contactForm.pesan?.value.trim(),
+        };
 
-            // Loading state
-            submitBtn.disabled = true;
+        // VALIDATION
+        if (
+            !formData.nama ||
+            !formData.pesan ||
+            (!formData.email && !formData.kontak)
+        ) {
+
+            alert(
+                'Harap isi Nama, Pesan, dan minimal Email atau WhatsApp.'
+            );
+
+            return;
+        }
+
+        // LOADING
+        submitBtn.disabled = true;
+
+        submitBtn.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim...';
+
+        try {
+
+            await fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+
+                body: new URLSearchParams({
+                    nama: formData.nama,
+                    email: formData.email,
+                    kontak: formData.kontak,
+                    subjek: formData.subjek || '-',
+                    pesan: formData.pesan,
+                }),
+            });
+
+            // SUCCESS
             submitBtn.innerHTML =
-                '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim...';
+                '<i class="fa-solid fa-circle-check"></i> Terkirim!';
 
-            try {
+            submitBtn.classList.add('success');
 
-                await fetch(APPS_SCRIPT_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        nama: formData.nama,
-                        kontak: formData.email || formData.kontak,
-                        subjek: formData.subjek || '-',
-                        pesan: formData.pesan,
-                    }),
-                });
+            contactForm.reset();
 
-                // Success
-                submitBtn.innerHTML =
-                    '<i class="fa-solid fa-circle-check"></i> Terkirim!';
-                submitBtn.classList.add('success');
-
-                contactForm.reset();
-
-                setTimeout(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = defaultBtnHTML;
-                    submitBtn.classList.remove('success');
-                }, 3000);
-
-            } catch (error) {
-
-                console.error(error);
-
-                alert(
-                    'Gagal mengirim pesan. Periksa koneksi atau Apps Script.'
-                );
+            setTimeout(() => {
 
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = defaultBtnHTML;
-            }
-        });
-    }
 
-});
+                submitBtn.innerHTML = defaultBtnHTML;
+
+                submitBtn.classList.remove('success');
+
+            }, 3000);
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert(
+                'Gagal mengirim pesan. Periksa koneksi atau Apps Script.'
+            );
+
+            submitBtn.disabled = false;
+
+            submitBtn.innerHTML = defaultBtnHTML;
+        }
+    });
+}
+
+
+
