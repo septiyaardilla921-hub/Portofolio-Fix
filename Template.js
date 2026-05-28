@@ -9,50 +9,77 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('nav a');
     const menuIcon = menuBtn?.querySelector('i');
 
-    if (menuBtn && nav && overlay) {
+    // Cek apakah elemen tersedia
+    if (!menuBtn || !nav || !overlay) return;
 
-        const toggleNav = () => {
-            const isOpen = nav.classList.toggle('open');
+    // ─────────────────────────────────────────────
+    // OPEN / CLOSE MENU
+    // ─────────────────────────────────────────────
+    const openNav = () => {
+        nav.classList.add('open');
+        overlay.classList.add('show');
+        document.body.classList.add('nav-open');
 
-            overlay.classList.toggle('show', isOpen);
-            document.body.classList.toggle('nav-open', isOpen);
+        // Ganti icon
+        if (menuIcon) {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-xmark');
+        }
 
-            if (menuIcon) {
-                menuIcon.classList.toggle('fa-bars', !isOpen);
-                menuIcon.classList.toggle('fa-xmark', isOpen);
-            }
+        menuBtn.setAttribute('aria-expanded', 'true');
+    };
 
-            menuBtn.setAttribute('aria-expanded', isOpen);
-        };
+    const closeNav = () => {
+        nav.classList.remove('open');
+        overlay.classList.remove('show');
+        document.body.classList.remove('nav-open');
 
-        const closeNav = () => {
-            nav.classList.remove('open');
-            overlay.classList.remove('show');
-            document.body.classList.remove('nav-open');
+        // Kembalikan icon
+        if (menuIcon) {
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+        }
 
-            if (menuIcon) {
-                menuIcon.classList.remove('fa-xmark');
-                menuIcon.classList.add('fa-bars');
-            }
+        menuBtn.setAttribute('aria-expanded', 'false');
+    };
 
-            menuBtn.setAttribute('aria-expanded', 'false');
-        };
+    const toggleNav = () => {
+        const isOpen = nav.classList.contains('open');
 
-        // Toggle menu
-        menuBtn.addEventListener('click', toggleNav);
+        if (isOpen) {
+            closeNav();
+        } else {
+            openNav();
+        }
+    };
 
-        // Close when overlay clicked
-        overlay.addEventListener('click', closeNav);
+    // ─────────────────────────────────────────────
+    // EVENT LISTENERS
+    // ─────────────────────────────────────────────
 
-        // Close when nav link clicked
-        navLinks.forEach(link => {
-            link.addEventListener('click', closeNav);
-        });
+    // Klik tombol menu
+    menuBtn.addEventListener('click', toggleNav);
 
-        // Auto close on desktop resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                closeNav();
-            }
-        });
-    }
+    // Klik overlay
+    overlay.addEventListener('click', closeNav);
+
+    // Klik link menu
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeNav);
+    });
+
+    // Tombol ESC untuk close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeNav();
+        }
+    });
+
+    // Auto close saat resize desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            closeNav();
+        }
+    });
+
+});
