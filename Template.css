@@ -1013,6 +1013,72 @@ body.nav-open {
 }
 
 /* =============================================
+   DOWNLOAD CV
+============================================= */
+.cv-download-wrapper {
+
+    margin-top: 60px;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.cv-download-btn {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    padding: 18px 34px;
+
+    border-radius: 22px;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--blue-main),
+        var(--blue-light)
+    );
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    overflow: hidden;
+
+    box-shadow:
+    0 12px 30px rgba(37,99,235,.20);
+
+    transition: all .35s ease;
+
+    /* TAMBAHAN */
+    width: fit-content;
+
+    margin: 40px auto 0;
+}
+
+@media (max-width: 600px) {
+
+    .cv-download-btn {
+
+        width: 100%;
+
+        max-width: 320px;
+
+        justify-content: center;
+    }
+}
+
+/* =============================================
    REDUCED MOTION
 ============================================= */
 @media (prefers-reduced-motion: reduce) {
@@ -1024,3 +1090,4 @@ body.nav-open {
         scroll-behavior: auto !important;
     }
 }
+
